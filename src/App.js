@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar.jsx';
+import Users from './Components/Users/Users.jsx';
+import Baneos from './Components/Baneos/Baneos.jsx';
+import Error404 from './Components/Error/Error.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      
+      <Routes>
+        <Route path="/" element={<h1 style={{ padding: '20px' }}>Página Principal</h1>} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/baneos" element={<Baneos />} />
+        
+        {/* Ruta comodín para el 404 */}
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
