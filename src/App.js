@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar/Navbar.jsx';
 import Users from './Components/Users/Users.jsx';
 import Baneos from './Components/Baneos/Baneos.jsx';
 import Error404 from './Components/Error/Error.jsx';
+import Index from './Components/Index/Index.jsx';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Navbar />
       
       <Routes>
-        <Route path="/" element={<h1 style={{ padding: '20px' }}>Página Principal</h1>} />
+        <Route path="/" element={<Index />} />
         <Route path="/users" element={<Users />} />
         <Route path="/baneos" element={<Baneos />} />
         
