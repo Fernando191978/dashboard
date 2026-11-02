@@ -1,5 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
+  background-color: #0d0d0d !important;
+  color: #e0e0e0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,109 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* ---------- Estilos compartidos por todas las páginas ---------- */
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dark-card {
+  background-color: #161616 !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 16px;
+  color: #e0e0e0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.dark-card .card-body {
+  padding: 2rem;
+}
+
+.section-title {
+  color: #f0f0f0;
+  font-weight: 700;
+}
+
+.dark-table {
+  border-color: #2a2a2a !important;
+  margin-bottom: 1.5rem;
+}
+
+.dark-table thead th {
+  background-color: #0a0a0a !important;
+  color: #4da6ff !important;
+  border-color: #2a2a2a !important;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.dark-table tbody td {
+  background-color: #161616 !important;
+  color: #d0d0d0 !important;
+  border-color: #2a2a2a !important;
+  vertical-align: middle;
+}
+
+.dark-table.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #1c1c1c !important;
+}
+
+.dark-table tbody tr:hover td {
+  background-color: #232323 !important;
+}
+
+.id-badge {
+  display: inline-block;
+  background-color: #2a2a2a;
+  color: #4da6ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #f0f0f0 !important;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-info {
+  color: #d0d0d0;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  background-color: #0a0a0a;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+}
+
+.btn-dark-ghost {
+  background-color: transparent !important;
+  border: 1px solid #444 !important;
+  color: #d0d0d0 !important;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-dark-ghost:hover {
+  background-color: #2a2a2a !important;
+  border-color: #4da6ff !important;
+  color: #4da6ff !important;
+}
+
+.btn-dark-ghost:disabled {
+  opacity: 0.35;
 }

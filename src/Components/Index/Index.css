@@ -1,0 +1,35 @@
+.character-img {
+  width: 160px !important;
+  height: 160px !important;
+  object-fit: cover;
+  border-radius: 50% !important;
+  border: 4px solid #4da6ff;
+  box-shadow: 0 0 20px rgba(77, 166, 255, 0.3);
+  margin: 0 auto;
+}
+
+.character-info {
+  color: #d0d0d0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  padding: 0 1rem;
+}
+
+.character-info strong {
+  color: #4da6ff;
+}
+
+.btn-custom {
+  background-color: transparent !important;
+  border: 1px solid #4da6ff !important;
+  color: #4da6ff !important;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #4da6ff !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(77, 166, 255, 0.5);
+}

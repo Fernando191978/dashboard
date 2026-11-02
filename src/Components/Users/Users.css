@@ -1,49 +1,5 @@
-/* Contenedor principal */
-.contenedor-principal {
-  padding: 20px;
-}
-
-/* Estilos de la Tabla */
-.tabla-personalizada {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  background-color: white;
-}
-
-.tabla-personalizada th,
-.tabla-personalizada td {
-  border: 1px solid #dee2e6;
-  padding: 12px;
-  text-align: left;
-}
-
-/* Fila de encabezado */
-.tabla-personalizada thead {
-  background-color: #343a40;
-  color: white;
-}
-
-/* Efecto cebra (filas de distinto color) */
-.tabla-personalizada tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-/* Efecto al pasar el mouse */
-.tabla-personalizada tbody tr:hover {
-  background-color: #e9ecef;
-}
-
-/* Paginado */
-.contenedor-paginado {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.texto-pagina {
-  padding: 8px;
-  font-weight: bold;
+.email-cell {
+  color: #a0a0a0 !important;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
 }

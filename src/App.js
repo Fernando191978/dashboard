@@ -1,23 +1,25 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar.jsx';
-import Users from './Components/Users/Users.jsx';
-import Baneos from './Components/Baneos/Baneos.jsx';
-import Error404 from './Components/Error/Error.jsx';
-import Index from './Components/Index/Index.jsx';
+import Navbar from './Components/Navbar/Navbar';
+import Index from './Components/Index/Index';
+import Users from './Components/Users/Users';
+import Baneos from './Components/Baneos/Baneos';
+import Error404 from './Components/Error/Error';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/baneos" element={<Baneos />} />
-        
-        {/* Ruta comodín para el 404 */}
-        <Route path="*" element={<Error404 />} />
-      </Routes>
+      <div className="w-100 min-vh-100 d-flex flex-column bg-dark">
+        <Navbar />
+
+        <main className="flex-grow-1 d-flex align-items-center justify-content-center p-3 p-md-4">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/baneos" element={<Baneos />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

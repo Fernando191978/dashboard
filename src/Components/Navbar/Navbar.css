@@ -1,0 +1,51 @@
+.custom-navbar {
+  background-color: #0a0a0a !important;
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 1rem 0;
+}
+
+.custom-navbar .navbar-brand {
+  color: #f0f0f0 !important;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #4da6ff !important;
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: #444;
+  background-color: #1a1a1a;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(1) brightness(1.5);
+}
+
+/* El menú lateral (Offcanvas) se renderiza fuera de .custom-navbar en mobile,
+   por eso estos estilos usan sus propias clases. */
+.custom-offcanvas {
+  background-color: #0a0a0a !important;
+}
+
+.nav-link-custom {
+  color: #b0b0b0 !important;
+  font-weight: 500;
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #ffffff !important;
+  background-color: #1c1c1c;
+}
+
+.nav-link-custom.active {
+  color: #4da6ff !important;
+  background-color: #141414;
+  box-shadow: inset 0 -2px 0 #4da6ff;
+}
