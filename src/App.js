@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Index from './Components/Index/Index';
 import Users from './Components/Users/Users';
-import Baneos from './Components/Baneos/Baneos';
 import Error404 from './Components/Error/Error';
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/users" element={<Users />} />
-            <Route path="/baneos" element={<Baneos />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </main>
