@@ -1,24 +1,33 @@
 import { useState, useEffect } from 'react';
-import { Table, Button, Container, Card, Badge } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
+import CharacterTable from '../CharacterTable/CharacterTable'; // Asumiendo que los guardaste en Components/UI
+import Pagination from '../Pagination/Pagination';
 import './Users.css';
 
 export default function Users() {
-  const [data, setData] = useState({ results: [], info: { count: 0 } });
+  // Estados (Lógica del Código 2)
+  const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const apiPage = Math.ceil(page / 2);
-
+  // Fetch (Lógica del Código 2)
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character?page=${apiPage}`)
-      .then(r => r.json())
-      .then(setData)
-      .catch(console.error);
-  }, [apiPage]); 
+    const fetchRickAndMorty = async () => {
+      try {
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`);
+        
+        if (!response.ok) throw new Error('Error al traer personajes');
 
-  const startIndex = ((page - 1) % 2) * 10;
-  const characters10 = data.results.slice(startIndex, startIndex + 10);
+        const json = await response.json();
+        setCharacters(json.results || []);
+        setTotalPages(json.info.pages || 1); // La API nos dice cuántas páginas hay en total
+      } catch (error) {
+        console.error('Error al traer los personajes:', error.message);
+      }
+    };
 
-  const totalPages = Math.ceil(data.info.count / 10) || 1;
+    fetchRickAndMorty();
+  }, [page]);
 
   return (
     <Container className="page-container py-4">
@@ -26,32 +35,17 @@ export default function Users() {
         <Card.Body>
           <h2 className="section-title text-center mb-4">Personajes de Rick and Morty</h2>
 
-          <Table className="dark-table">
-            <thead>
-              <tr><th>ID</th><th>Nombre</th><th>Especie</th><th>Estado</th><th>Avatar</th></tr>
-            </thead>
-            <tbody>
-              {characters10.map(c => (
-                <tr key={c.id}>
-                  <td><span className="id-badge">{c.id}</span></td>
-                  <td className="user-name">{c.name}</td>
-                  <td>{c.species}</td>
-                  <td>
-                    <Badge bg={c.status === 'Alive' ? 'success' : c.status === 'Dead' ? 'danger' : 'secondary'}>
-                      {c.status}
-                    </Badge>
-                  </td>
-                  <td><img src={c.image} alt={c.name} className="avatar-img" /></td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+          {/* 1. MAP CORRECTO (mapea el estado directo de la API) */}
+          <CharacterTable characters={characters} />
 
-          <div className="pagination-container">
-            <Button className="btn-dark-ghost" disabled={page === 1} onClick={() => setPage(page - 1)}>← Anterior</Button>
-            <span className="page-info">Página {page} de {totalPages}</span>
-            <Button className="btn-dark-ghost" disabled={page === totalPages} onClick={() => setPage(page + 1)}>Siguiente →</Button>
-          </div>
+          {/* 2. PAGINADOR CORRECTO (usa tu componente y deshabilita el Siguiente) */}
+          <Pagination 
+            currentPage={page} 
+            totalPages={totalPages} 
+            onPrev={() => setPage(page - 1)} 
+            onNext={() => setPage(page + 1)} 
+          />
+          
         </Card.Body>
       </Card>
     </Container>
